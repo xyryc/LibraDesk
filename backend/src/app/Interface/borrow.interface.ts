@@ -1,7 +1,5 @@
-
-
 export interface IBorrow {
-    book:string,
-    quantity:number,
-    dueDate:Date
+  book: string;
+  quantity: number;
+  dueDate: Date;
 }

@@ -14,16 +14,11 @@ const createBookSchema = z.object({
   available: z.boolean().optional(),
 });
 
-
-
-
-
-
 export type IBookZod = z.infer<typeof createBookSchema>;
 
 bookRoutes.post("/", async (req, res) => {
   try {
-    const bodyParse =await createBookSchema.parseAsync(req.body);
+    const bodyParse = await createBookSchema.parseAsync(req.body);
 
     const bookData = new Book(bodyParse);
     await bookData.save();
@@ -44,7 +39,6 @@ bookRoutes.post("/", async (req, res) => {
 });
 
 // Get ALl Books
-
 bookRoutes.get("/", async (req, res) => {
   try {
     const result = await Book.find();
@@ -64,72 +58,64 @@ bookRoutes.get("/", async (req, res) => {
 });
 
 // Spesific Book Api using Unique id
-
 bookRoutes.get("/:bookId", async (req, res) => {
   try {
     const id = req.params.bookId;
     const result = await Book.findOne({ _id: id });
- 
-res.status(200).json({
-  success: true,
-  result: result, 
-});
 
+    res.status(200).json({
+      success: true,
+      result: result,
+    });
   } catch (error) {
-
     res.status(404).json({
-      sucess:false,
-      message:" Failed To Book Fetch",
-      error:error
-    })
-
+      sucess: false,
+      message: " Failed To Book Fetch",
+      error: error,
+    });
   }
 });
 
 // Spesific Book Update {APIS}
-
 bookRoutes.put("/:bookId", async (req, res) => {
-  
   try {
-     const id = req.params.bookId;
-  const body = await createBookSchema.parseAsync(req.body);
-  const result= await Book.findByIdAndUpdate(id, body, {upsert:true, new:true});
-  
-  res.status(200).json({
-    sucess:true,
-    message:"Book Data Updated Sucessfully",
-    result:result,
-  })
-  } catch (error) {
+    const id = req.params.bookId;
+    const body = await createBookSchema.parseAsync(req.body);
+    const result = await Book.findByIdAndUpdate(id, body, {
+      upsert: true,
+      new: true,
+    });
 
+    res.status(200).json({
+      sucess: true,
+      message: "Book Data Updated Sucessfully",
+      result: result,
+    });
+  } catch (error) {
     res.status(401).json({
-      sucess:false,
-      message:"No Data Found",
-      error:error,
-    })
-    
+      sucess: false,
+      message: "No Data Found",
+      error: error,
+    });
   }
 });
 
-
 // Single Book Deleted API
-
 bookRoutes.delete("/:bookId", async (req, res) => {
   const id = req.params.bookId;
-  const result= await Book.deleteOne({_id:id});
+  const result = await Book.deleteOne({ _id: id });
 
   res.status(200).json({
-    sucess:true,
-    messgae:"Book Deleted Sucessfully!",
-    result:result
+    sucess: true,
+    messgae: "Book Deleted Sucessfully!",
+    result: result,
   });
 
-  if(!result){
-       res.status(404).json({
-      sucess:false,
-      message:"Deleted Failed",
-      
-    })
+  if (!result) {
+    res.status(404).json({
+      sucess: false,
+      message: "Deleted Failed",
+    });
   }
 });
 
