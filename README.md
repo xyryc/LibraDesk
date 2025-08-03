@@ -1,12 +1,12 @@
-# 📚 Minimal Library Management System
+# 📚 LibraDesk Library Management System
 
 A minimal, modern library management system built with **React**, **Redux Toolkit Query (RTK Query)**, and **TypeScript**. This project demonstrates clean UI, state management, and seamless API integration for book management and borrow tracking—**all without authentication or unnecessary complexity**.
 
 **Live Demo:**  
-🔗 [Minimal Library Management System Live](https://engrsakib-level-2-ass4.surge.sh/)
+🔗 [Library Management System Live](https://libradesk.netlify.app)
 
 **GitHub Repo:**  
-🔗 [engrsakib/test-library-management-](https://github.com/engrsakib/test-library-management-)
+🔗 [xyryc/test-library-management-](https://github.com/xyryc/LibraDesk)
 
 ---
 
@@ -25,23 +25,24 @@ The Minimal Library Management System is a client-side web application focused o
 
 ### 2. Book Management
 
-- **Book List Table**:  
+- **Book List Table**:
   - Displays all books in a tabular format.
   - Columns: Title, Author, Genre, ISBN, Copies, Availability, Actions.
-- **Actions**:  
+- **Actions**:
+
   - **Edit Book**: Edit details in a pre-filled form. Updates are reflected instantly.
-    - *Logic*: If copies = 0, marks as unavailable.
+    - _Logic_: If copies = 0, marks as unavailable.
   - **Delete Book**: Confirmation modal before removal.
   - **Borrow Book**: Opens a borrow form for the chosen book.
 
-- **Add New Book**:  
+- **Add New Book**:
   - Dedicated form to add a new book.
   - Required fields: Title, Author, Genre, ISBN, Description, Copies (Availability optional, defaults to true).
   - Redirects to book list and updates UI after successful creation.
 
 ### 3. Borrow Book
 
-- **Borrow Form**:  
+- **Borrow Form**:
   - Accessible from "Borrow" button in the book list.
   - Fields: Quantity (cannot exceed available copies), Due Date.
   - Business logic:
@@ -72,7 +73,7 @@ The Minimal Library Management System is a client-side web application focused o
 ## 🖥️ UI/UX
 
 - **Minimalist & Modern**: Clean layout using [Tailwind CSS](https://tailwindcss.com/) or plain CSS.
-- **User Friendly**:  
+- **User Friendly**:
   - Simple and intuitive navigation.
   - Clearly labeled buttons and forms.
   - Action confirmations and success messages.
@@ -93,30 +94,36 @@ The Minimal Library Management System is a client-side web application focused o
 ## 🏁 Getting Started
 
 1. **Clone the Repository**
+
    ```bash
-   git clone https://github.com/engrsakib/test-library-management-.git
-   cd test-library-management-
+   git clone https://github.com/xyryc/LibraDesk.git
+   cd LibraDesk
    ```
 
 2. **Install Dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Configure API Endpoint**
+
    - Edit your API base URL in the RTK Query API slice or environment variable as required.
 
 4. **Start the App**
+
    ```bash
    npm run dev
    ```
+
    or
+
    ```bash
    npm start
    ```
 
-5. **Visit**  
-   - Open [http://localhost:3000](http://localhost:3000) in your browser, or use the [live demo](https://engrsakib-level-2-ass4.surge.sh/).
+5. **Visit**
+   - Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
@@ -138,7 +145,7 @@ src/
 
 ## 🙏 Credits
 
-Created by [engrsakib](https://github.com/engrsakib)  
+Created by [xyryc](https://github.com/xyryc)  
 Minimal Library Management System – For demo, learning, and simple library workflows.
 
 ---
